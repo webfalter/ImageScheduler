@@ -8,6 +8,13 @@ let package = Package(
         .library(name: "ImageScheduler", targets: ["ImageScheduler"])
     ],
     targets: [
-        .target(name: "ImageScheduler", path: "Sources/ImageScheduler")
+        .target(
+            name: "ImageScheduler",
+            path: "Sources/ImageScheduler",
+            swiftSettings: [
+                .define("DEBUG", .when(configuration: .debug)),
+                .define("RELEASE", .when(configuration: .release))
+            ]
+        )
     ]
 )
